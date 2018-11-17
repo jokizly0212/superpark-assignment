@@ -1,0 +1,692 @@
+@font-face {
+    font-family: 'Outage-cut';
+    src: url('fonts/Outage-cut.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    background: #dddddd;
+    font-family: 'Oswald', sans-serif;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #341142; 
+}
+::-webkit-scrollbar-thumb {
+    background: #c1cf00;
+    border-radius: 5px; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #a9b409; 
+}
+.logo {
+    position: absolute;
+    width: 5%;
+    top: 6%;
+    left: 6%;
+    z-index: 3;
+}
+.menu-bar {
+    position: fixed;
+    height: 100%;
+    width: 30%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+}
+.menu-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #47195b;
+}
+.menu-button {
+    position: fixed;
+    top: 6%;
+    right: 6%;
+    width: 6vh;
+    height: 6vh;
+    z-index: 4;
+    border: 2px solid #c1cf00;
+    border-radius: 50%;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.menu-button:hover {
+    width: 7.5vh;
+    height: 7.5vh;
+}
+.menu-icon {
+    display: block;
+    float: right;
+    width: 3vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.4s;
+    padding: 2vh;
+}
+.menu-icon.close {
+    width: 2.5vh;
+    padding: 1vh;
+    opacity: 0;
+    z-index: 2;
+    visibility: hidden;
+}
+ul.language {
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    transform: translateX(-50%);
+}
+ul.language li {
+    list-style-type: none;
+    display: inline-block;
+}
+ul.language li a::after {
+    content: "/";
+    padding: 0 0.3vw;
+}
+ul.language li a:hover {
+    color: #dddddd;
+}
+ul.language li a {
+    color: #c1cf00;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+ul.menu-list {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+}
+ul.menu-list li {
+    list-style-type: none;
+    padding-top: 4vh;
+}
+ul.menu-list li a {
+    position: relative;
+    display: inline-block;
+    color: #c1cf00;
+    text-decoration: none;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+ul.menu-list li a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    background-color: #c1cf00;
+    bottom: 0;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: 0.4s;
+}
+ul.menu-list li a:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+.menu-open-animation {
+    z-index: 3;
+    animation: slide-left 1s forwards;
+}
+.menu-close-animation {
+    z-index: 3;
+    animation: slide-right 1s forwards;
+}
+.z-index {
+    z-index: 3;
+}
+.menu-scroll {
+    background: #47195b;
+    border: 2px solid #47195b;
+}
+/***************CSS FOR HEADER****************/
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 2%;
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    overflow-y: hidden;
+}
+.carousel-indicators li {
+    display: inline-block;
+    color: #929191;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 1vh;
+    font-size: 1.5rem;
+    transition: 0.4s;
+    position: relative;
+    top: -25%;
+}
+.carousel-indicators li.active {
+    color: #c1cf00;
+    font-size: 2.3rem;
+}
+.carousel-indicators li.active::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 3vh;
+    background: #dddddd;
+    border-radius: 5px;
+}
+.header-carousel, .carousel-slides, .carousel-item {
+    width: 100%;
+    height: 100%;
+}
+.header-carousel {
+    position: relative;
+    z-index: 1;
+    background-color: #712791;
+}
+.carousel-item {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+    position: absolute;
+}
+.carousel-item.item-1 {
+    background: url('../images//SPWWW-frontpage-3000x1000px-5.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.carousel-item.item-2 {
+    background: url('../images//SPWWW-frontpage-3000x1000px_2.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.carousel-item.item-3 {
+    background: url('../images/hero1.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.carousel-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translateY(-50%);
+    overflow: hidden;
+}
+.carousel-title {
+    color: #c1cf00;
+    font-family: 'Outage-cut', sans-serif;
+    font-size: 4rem;
+}
+.carousel-subtitle {
+    color: #dddddd;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    width: 65%;
+    margin-top: 2.5vh;
+}
+.carousel-button, .button {
+    color: #c1cf00;
+    display: inline-block;
+    padding: 1.5vh 2vw;
+    font-size: 1.4rem;
+    background: #47195b;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 5vh;
+    margin-right: 0.5vw;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.carousel-button:hover, .button:hover {
+    background: #341142;
+}
+.carousel-button.second {
+    background: #c1cf00;
+    color: #47195b;
+}
+.carousel-button.second:hover {
+    color: #c1cf00;
+    background: #47195b;
+}
+.carousel-item.active {
+    animation: blur .7s forwards;
+}
+.carousel-item.active .carousel-subtitle, 
+.carousel-item.active .carousel-title {
+    animation: slide-right-1 1s forwards;
+}
+.carousel-item.active .carousel-button {
+    animation: slide-up 1s forwards;
+}
+
+/***********CSS FOR section-a*****************/
+.section-a {
+    width: 100%;
+    height: 40%;
+    position: relative;
+    margin: 10vh 0;
+}
+.section-a-wrapper{
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1vw;
+}
+.a-item {
+    position: relative;
+    perspective: 1200px;
+}
+.a-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transition: 0.4s;
+    backface-visibility: hidden;
+}
+.a-image.image-1 {
+    background: url('../images/SP-mielipidekysely_FB_1920x1080-1024x576.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.a-image.image-2 {
+    background: url('../images/SP_3F2KAUSARI_1920x1080-1024x576.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.a-content-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #47195b;
+    color: #dddddd;
+    padding: 0 3vw;
+    box-sizing: border-box;
+    transform: rotateY(-180deg);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+    backface-visibility: hidden;
+}
+h2.a-title {
+    color: #c1cf00;
+    font-size: 3rem;
+    margin-top: 4%;
+}
+.a-subtitle {
+    margin-top: 3%;
+    font-size: 1.2rem;
+}
+.a-button.button {
+    background: #c1cf00;
+    color: #47195b;
+    margin-top: 5%;
+}
+.a-button.button:hover {
+    background: #a9b409;
+}
+.a-item:hover .a-image {
+    transform: rotateY(180deg);
+}
+.a-item:hover .a-content-wrapper {
+    opacity: 1;
+    visibility: visible;
+    transform: rotateY(0deg);
+}
+
+/***********CSS FOR SECTION-DARK**************/
+.section-dark {
+    width: 100%;
+    height: 60%;
+    background: url('../images/SPBlackFriday_3000x1000_2.jpg');
+    background-position: right;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    margin-bottom: 100vh;
+    overflow-x: hidden;
+}
+.section-dark-wrapper {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translateY(-50%);
+    color: #dddddd;
+    font-family: 'Outage-cut', sans-serif;
+}
+.section-dark-wrapper h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+.section-dark-wrapper h3.date {
+    font-size: 1.5rem;
+    margin-top: 1.8vh;
+}
+.section-dark-wrapper .button {
+    font-family: 'Oswald', sans-serif;
+}
+/***********CSS FOR ANIMATION*****************/
+@keyframes slide-left {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0%);
+    }
+}
+@keyframes slide-right {
+    0% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0%);
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(100%);
+    }
+}
+@keyframes slide-right-1 {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+@keyframes slide-up {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+@keyframes blur {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        filter: blur(25px);
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        filter: blur(0);
+    }
+}
+
+/**************CSS FOR REPONSIVENESS***************/
+@media (max-width: 1439px) and (min-width: 1366px)  {
+    .menu-icon {
+        width: 4vh;
+    }
+    .carousel-wrapper {
+        left: 12%;
+    }
+    .carousel-title, .section-dark-wrapper h1 {
+        font-size: 3.5rem;
+    }
+    .carousel-subtitle {
+        font-size: 1.3rem;
+    }
+    .carousel-button, .button {
+        font-size: 1.2rem;
+    }
+    h2.a-title {
+        font-size: 1.5rem;
+    }
+    .a-subtitle {
+        font-size: 0.9rem;
+    }
+    .section-dark-wrapper h3.date {
+        font-size: 1.2rem;
+    }
+}
+@media (max-width: 1680px) and (min-width: 1440px) {
+    .menu-icon {
+        width: 4vh;
+    }
+    .carousel-wrapper {
+        left: 12%;
+    }
+    .carousel-title, .section-dark-wrapper h1 {
+        font-size: 3.7rem;
+    }
+    .carousel-subtitle {
+        font-size: 1.5rem;
+    }
+    .carousel-button, .button {
+        font-size: 1.3rem;
+    }
+    .section-a-wrapper {
+        width: 85%;
+    }
+    h2.a-title {
+        font-size: 2.5rem;
+    }
+    .a-subtitle {
+        font-size: 1.2rem;
+    }
+}
+@media (max-width: 1365px) and (min-width: 768px) {
+    .logo {
+        width: 10%;
+        left: 10%;
+        top: 8%;
+    }
+    .menu-bar {
+        width: 50%;
+    }
+    .menu-button:hover {
+        width: 6vh;
+        height: 6vh;
+        background: none!important;
+    }
+    .menu-icon {
+        width: 4vh;
+    }
+    .carousel-wrapper {
+        left: 12%;
+    }
+    .carousel-item.item-1, .carousel-item.item-2, .carousel-item.item-3 {
+        background-position: 70%;
+    }
+    .carousel-title, .section-dark-wrapper h1 {
+        font-size: 3.2rem;
+    }
+    .carousel-subtitle {
+        width: 80%;
+        font-size: 1.3rem;
+    }
+    .carousel-button, .button {
+        font-size: 1.2rem;
+    }
+    .section-a {
+        margin: 4vh 0;
+        height: 60%;
+    }
+    .section-a-wrapper {
+        position: relative;
+        width: 90%;
+        height: 35%;
+        display: block;
+    }
+    .a-item {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        grid-template-columns: 1fr 1fr;
+    }
+    .a-item:hover .a-image {
+        transform: unset;
+    }
+    .a-item:nth-child(2) {
+        margin-top: 10%;
+    }
+    .a-image {
+        position: unset;
+    }
+    .a-content-wrapper {
+        position: unset;
+        opacity: 1;
+        visibility: visible;
+        backface-visibility: visible;
+        transform: rotateY(0deg);
+        background: none;
+    }
+    h2.a-title {
+        font-size: 1.7rem;
+        color: #47195b;
+    }
+    .a-subtitle {
+        font-size: 0.7rem;
+        color: #242424;
+    }
+    .section-dark {
+        height: 35%;
+        background-attachment: unset;
+    }
+    .section-dark-wrapper {
+        left: 10%;
+    }
+    .section-dark-wrapper h3.date {
+        font-size: 1.2rem;
+        margin-top: 1.2vh;
+    }
+    .section-dark-wrapper .button {
+        margin-top: 3.2vh;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .logo {
+        width: 20%;
+        left: 10%;
+        top: 5%;
+    }
+    .menu-button {
+        right: 10%;
+    }
+    .menu-bar {
+        width: 100%;
+    }
+    .menu-button:hover {
+        width: 6vh;
+        height: 6vh;
+    }
+    .menu-icon {
+        width: 4vh;
+    }
+    .carousel-wrapper {
+        left: 12%;
+    }
+    .carousel-item.item-1, .carousel-item.item-2, .carousel-item.item-3 {
+        background-position: 70%;
+    }
+    .carousel-title {
+        font-size: 2.2rem;
+    }
+    .carousel-subtitle {
+        width: 80%;
+        font-size: 1rem;
+    }
+    .carousel-button, .button {
+        font-size: 1rem;
+        margin-top: 3vh;
+    }
+    .carousel-button.second {
+        margin-top: 0.8vh;
+    }
+    .section-a {
+        margin: 4vh 0;
+        height: auto;
+    }
+    .section-a-wrapper {
+        position: relative;
+        width: 90%;
+        display: block;
+    }
+    .a-image {
+        width: 100%;
+        height: 200px;
+    }
+    .a-item {
+        display: block;
+        width: 100%;
+        height: 30%;
+        grid-template-columns: 1fr 1fr;
+    }
+    .a-item:hover .a-image {
+        transform: unset;
+    }
+    .a-item:nth-child(2) {
+        margin-top: 10%;
+    }
+    .a-image {
+        position: unset;
+    }
+    .a-content-wrapper {
+        position: unset;
+        opacity: 1;
+        visibility: visible;
+        backface-visibility: visible;
+        transform: rotateY(0deg);
+        background: none;
+    }
+    h2.a-title {
+        font-size: 1.7rem;
+        color: #47195b;
+    }
+    .a-subtitle {
+        font-size: 0.7rem;
+        color: #242424;
+    }
+    .section-dark {
+        height: 25%;
+        background-attachment: unset;
+    }
+    .section-dark-wrapper {
+        left: 10%;
+    }
+    .section-dark-wrapper h3.date {
+        font-size: 0.7rem;
+        margin-top: 1.2vh;
+    }
+    .section-dark-wrapper .button {
+        margin-top: 2.2vh;
+    }
+    .section-dark-wrapper h1 {
+        font-size: 1.5rem;
+    }
+}
