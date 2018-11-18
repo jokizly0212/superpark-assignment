@@ -159,7 +159,7 @@ ul.menu-list li a:hover:before {
 }
 /***************CSS FOR HEADER****************/
 
-.carousel-indicators {
+/* .carousel-indicators {
     position: absolute;
     bottom: 2%;
     width: 100%;
@@ -193,6 +193,57 @@ ul.menu-list li a:hover:before {
     height: 3vh;
     background: #dddddd;
     border-radius: 5px;
+} */
+.circle {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #dddddd;
+    border-radius: 50%;
+    margin: auto;
+}
+.carousel-indicators {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+.carousel-indicators li {
+    list-style-type: none;
+    text-indent: -9999px;
+    margin: auto;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #dddddd;
+    margin-top: 2vh;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.carousel-indicators li:hover {
+    background: #dbb003;
+    transform: scale(1.2);
+}
+.carousel-indicators li.active {
+    border-radius: 0;
+    height: 70px;
+    width: 2px;
+}
+.carousel-indicators li.active:hover {
+    background: #dddddd;
+    transform: scale(1);
+}
+.carousel-indicators .fa-angle-down {
+    display: block;
+    margin-top: 2vh;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.4s;
+    color: #dddddd;
+}
+.carousel-indicators .fa-angle-down:hover {
+    color: #dbb003;
+    transform: scale(1.2);
 }
 .header-carousel, .carousel-slides, .carousel-item {
     width: 100%;
